@@ -2,9 +2,9 @@
  <div class="col-md-12">
         <div class="card card-outline card-success">
           <div class="card-header">
-            <b>Project Progress</b>
+            <b>התקדמות פרוייקט</b>
             <div class="card-tools">
-            	<button class="btn btn-flat btn-sm bg-gradient-success btn-success" id="print"><i class="fa fa-print"></i> Print</button>
+            	<button class="btn btn-flat btn-sm bg-gradient-success btn-success" id="print"><i class="fa fa-print"></i> הדפסה</button>
             </div>
           </div>
           <div class="card-body p-0">
@@ -19,12 +19,12 @@
                 </colgroup> -->
                 <thead>
                   <th>#</th>
-                  <th>Project</th>
-                  <th>Task</th>
-                  <th>Completed Task</th>
-                  <th>Work Duration</th>
-                  <th>Progress</th>
-                  <th>Status</th>
+                  <th>פרוייקט</th>
+                  <th>משימה</th>
+                  <th>משימות שהסתיימו</th>
+                  <th>משך זמן עבודה</th>
+                  <th>התקדמות</th>
+                  <th>סטטוס</th>
                 </thead>
                 <tbody>
                 <?php
@@ -64,7 +64,7 @@
                           </a>
                           <br>
                           <small>
-                              Due: <?php echo date("Y-m-d",strtotime($row['end_date'])) ?>
+                              סיום: <?php echo date("Y-m-d",strtotime($row['end_date'])) ?>
                           </small>
                       </td>
                       <td class="text-center">
@@ -82,7 +82,7 @@
                               </div>
                           </div>
                           <small>
-                              <?php echo $prog ?>% Complete
+                              <?php echo $prog ?>% הסתיים
                           </small>
                       </td>
                       <td class="project-state">

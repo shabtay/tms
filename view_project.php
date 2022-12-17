@@ -29,23 +29,23 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 					<div class="row">
 						<div class="col-sm-6">
 							<dl>
-								<dt><b class="border-bottom border-primary">Project Name</b></dt>
+								<dt><b class="border-bottom border-primary">שם הפרוייקט</b></dt>
 								<dd><?php echo ucwords($name) ?></dd>
-								<dt><b class="border-bottom border-primary">Description</b></dt>
+								<dt><b class="border-bottom border-primary">תיאור</b></dt>
 								<dd><?php echo html_entity_decode($description) ?></dd>
 							</dl>
 						</div>
 						<div class="col-md-6">
 							<dl>
-								<dt><b class="border-bottom border-primary">Start Date</b></dt>
+								<dt><b class="border-bottom border-primary">תאריך התחלה</b></dt>
 								<dd><?php echo date("F d, Y",strtotime($start_date)) ?></dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">End Date</b></dt>
+								<dt><b class="border-bottom border-primary">תאריך סיום</b></dt>
 								<dd><?php echo date("F d, Y",strtotime($end_date)) ?></dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">Status</b></dt>
+								<dt><b class="border-bottom border-primary">סטטוס</b></dt>
 								<dd>
 									<?php
 									  if($stat[$status] =='Pending'){
@@ -65,7 +65,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								</dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">Project Manager</b></dt>
+								<dt><b class="border-bottom border-primary">מנהל פרוייקט</b></dt>
 								<dd>
 									<?php if(isset($manager['id'])) : ?>
 									<div class="d-flex align-items-center mt-1">
@@ -73,7 +73,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 										<b><?php echo ucwords($manager['name']) ?></b>
 									</div>
 									<?php else: ?>
-										<small><i>Manager Deleted from Database</i></small>
+										<small><i>המנהל נמחק ממסד הנתונים</i></small>
 									<?php endif; ?>
 								</dd>
 							</dl>
@@ -87,7 +87,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 		<div class="col-md-4">
 			<div class="card card-outline card-primary">
 				<div class="card-header">
-					<span><b>Team Member/s:</b></span>
+					<span><b>אנשי צוות:</b></span>
 					<div class="card-tools">
 						<!-- <button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="manage_team">Manage</button> -->
 					</div>
@@ -115,10 +115,10 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 		<div class="col-md-8">
 			<div class="card card-outline card-primary">
 				<div class="card-header">
-					<span><b>Task List:</b></span>
+					<span><b>רשימת משימות:</b></span>
 					<?php if($_SESSION['login_type'] != 3): ?>
 					<div class="card-tools">
-						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_task"><i class="fa fa-plus"></i> New Task</button>
+						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_task"><i class="fa fa-plus"></i> משימה חדשה</button>
 					</div>
 				<?php endif; ?>
 				</div>
@@ -134,10 +134,10 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 						</colgroup>
 						<thead>
 							<th>#</th>
-							<th>Task</th>
-							<th>Description</th>
-							<th>Status</th>
-							<th>Action</th>
+							<th>משימה</th>
+							<th>תיאור</th>
+							<th>סטטוס</th>
+							<th>פעולה</th>
 						</thead>
 						<tbody>
 							<?php 
@@ -169,12 +169,12 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 					                      Action
 					                    </button>
 					                    <div class="dropdown-menu" style="">
-					                      <a class="dropdown-item view_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">View</a>
+					                      <a class="dropdown-item view_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">הצגה</a>
 					                      <div class="dropdown-divider"></div>
 					                      <?php if($_SESSION['login_type'] != 3): ?>
-					                      <a class="dropdown-item edit_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">Edit</a>
+					                      <a class="dropdown-item edit_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">עריכה</a>
 					                      <div class="dropdown-divider"></div>
-					                      <a class="dropdown-item delete_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+					                      <a class="dropdown-item delete_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">מחיקה</a>
 					                  <?php endif; ?>
 					                    </div>
 									</td>
@@ -193,9 +193,9 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					<b>Members Progress/Activity</b>
+					<b>התקדמות/פעילות המשתתפים</b>
 					<div class="card-tools">
-						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_productivity"><i class="fa fa-plus"></i> New Productivity</button>
+						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_productivity"><i class="fa fa-plus"></i> פעילות חדשה</button>
 					</div>
 				</div>
 				<div class="card-body">
@@ -212,9 +212,9 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								    <i class="fa fa-ellipsis-v"></i>
 								  </span>
 								  <div class="dropdown-menu">
-								  	<a class="dropdown-item manage_progress" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">Edit</a>
+								  	<a class="dropdown-item manage_progress" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">עריכה</a>
 			                      	<div class="dropdown-divider"></div>
-				                     <a class="dropdown-item delete_progress" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+				                     <a class="dropdown-item delete_progress" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">מחיקה</a>
 								  </div>
 								</span>
 								<?php endif; ?>
@@ -226,9 +226,9 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 		                        	<span class="fa fa-calendar-day"></span>
 		                        	<span><b><?php echo date('M d, Y',strtotime($row['date'])) ?></b></span>
 		                        	<span class="fa fa-user-clock"></span>
-                      				<span>Start: <b><?php echo date('h:i A',strtotime($row['date'].' '.$row['start_time'])) ?></b></span>
+                      				<span>התחלה: <b><?php echo date('h:i A',strtotime($row['date'].' '.$row['start_time'])) ?></b></span>
 		                        	<span> | </span>
-                      				<span>End: <b><?php echo date('h:i A',strtotime($row['date'].' '.$row['end_time'])) ?></b></span>
+                      				<span>סיום: <b><?php echo date('h:i A',strtotime($row['date'].' '.$row['end_time'])) ?></b></span>
 	                        	</span>
 
 	                        	

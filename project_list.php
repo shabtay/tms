@@ -4,7 +4,7 @@
 		<div class="card-header">
             <?php if($_SESSION['login_type'] != 3): ?>
 			<div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> Add New project</a>
+				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> יצירת פרוייקט חדש</a>
 			</div>
             <?php endif; ?>
 		</div>
@@ -21,11 +21,11 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Project</th>
-						<th>Date Started</th>
-						<th>Due Date</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>פרוייקט</th>
+						<th>תאריך התחלה</th>
+						<th>תאריך סיום</th>
+						<th>סטטוס</th>
+						<th>פעולה</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -86,15 +86,15 @@
 						</td>
 						<td class="text-center">
 							<button type="button" class="btn btn-default btn-sm btn-flat border-info wave-effect text-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-		                      Action
+		                      פעולה
 		                    </button>
 		                    <div class="dropdown-menu" style="">
-		                      <a class="dropdown-item view_project" href="./index.php?page=view_project&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>">View</a>
+		                      <a class="dropdown-item view_project" href="./index.php?page=view_project&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>">הצגה</a>
 		                      <div class="dropdown-divider"></div>
 		                      <?php if($_SESSION['login_type'] != 3): ?>
-		                      <a class="dropdown-item" href="./index.php?page=edit_project&id=<?php echo $row['id'] ?>">Edit</a>
+		                      <a class="dropdown-item" href="./index.php?page=edit_project&id=<?php echo $row['id'] ?>">עריכה</a>
 		                      <div class="dropdown-divider"></div>
-		                      <a class="dropdown-item delete_project" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+		                      <a class="dropdown-item delete_project" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">מחיקה</a>
 		                  <?php endif; ?>
 		                    </div>
 						</td>

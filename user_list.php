@@ -3,7 +3,7 @@
 	<div class="card card-outline card-success">
 		<div class="card-header">
 			<div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_user"><i class="fa fa-plus"></i> Add New User</a>
+				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_user"><i class="fa fa-plus"></i> הוספת משתמש חדש</a>
 			</div>
 		</div>
 		<div class="card-body">
@@ -11,10 +11,10 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Role</th>
-						<th>Action</th>
+						<th>שם</th>
+						<th>דוא"ל</th>
+						<th>תפקיד</th>
+						<th>פעולה</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,14 +31,14 @@
 						<td><b><?php echo $type[$row['type']] ?></b></td>
 						<td class="text-center">
 							<button type="button" class="btn btn-default btn-sm btn-flat border-info wave-effect text-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-		                      Action
+		                      פעולה
 		                    </button>
 		                    <div class="dropdown-menu" style="">
-		                      <a class="dropdown-item view_user" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">View</a>
+		                      <a class="dropdown-item view_user" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">הצגה</a>
 		                      <div class="dropdown-divider"></div>
-		                      <a class="dropdown-item" href="./index.php?page=edit_user&id=<?php echo $row['id'] ?>">Edit</a>
+		                      <a class="dropdown-item" href="./index.php?page=edit_user&id=<?php echo $row['id'] ?>">עריכה</a>
 		                      <div class="dropdown-divider"></div>
-		                      <a class="dropdown-item delete_user" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+		                      <a class="dropdown-item delete_user" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">מחיקה</a>
 		                    </div>
 						</td>
 					</tr>	

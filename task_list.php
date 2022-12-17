@@ -3,7 +3,7 @@
 	<div class="card card-outline card-success">
 		<div class="card-header">
 			<div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> Add New project</a>
+				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> יצירת פרוייקט חדש</a>
 			</div>
 		</div>
 		<div class="card-body">
@@ -21,13 +21,13 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Project</th>
-						<th>Task</th>
-						<th>Project Started</th>
-						<th>Project Due Date</th>
-						<th>Project Status</th>
-						<th>Task Status</th>
-						<th>Action</th>
+						<th>פרוייקט</th>
+						<th>משימה</th>
+						<th>תחילת פרוייקט</th>
+						<th>סיום פרוייקט</th>
+						<th>סטטוס פרוייקט</th>
+						<th>סטטוס משימה</th>
+						<th>פעולה</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -104,10 +104,10 @@
                         </td>
 						<td class="text-center">
 							<button type="button" class="btn btn-default btn-sm btn-flat border-info wave-effect text-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-		                      Action
+		                      פעולה
 		                    </button>
 			                    <div class="dropdown-menu" style="">
-			                      <a class="dropdown-item new_productivity" data-pid = '<?php echo $row['pid'] ?>' data-tid = '<?php echo $row['id'] ?>'  data-task = '<?php echo ucwords($row['task']) ?>'  href="javascript:void(0)">Add Productivity</a>
+			                      <a class="dropdown-item new_productivity" data-pid = '<?php echo $row['pid'] ?>' data-tid = '<?php echo $row['id'] ?>'  data-task = '<?php echo ucwords($row['task']) ?>'  href="javascript:void(0)">הוספת פעילות</a>
 								</div>
 						</td>
 					</tr>	
