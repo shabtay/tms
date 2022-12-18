@@ -19061,6 +19061,7 @@ html.maximized-card {
 
 .callout.callout-info {
   border-left-color: #117a8b;
+  text-align: right;
 }
 
 .callout.callout-success {
@@ -31309,4 +31310,8 @@ a.text-muted:hover {
 
 .card {
 	text-align: right;
+}
+
+dd {
+    margin-right: 0;
 }

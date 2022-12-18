@@ -275,13 +275,13 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 		uni_modal("Task Details","view_task.php?id="+$(this).attr('data-id'),"mid-large")
 	})
 	$('#new_productivity').click(function(){
-		uni_modal("<i class='fa fa-plus'></i> New Progress","manage_progress.php?pid=<?php echo $id ?>",'large')
+		uni_modal("<i class='fa fa-plus'></i> התקדמות חדשה","manage_progress.php?pid=<?php echo $id ?>",'large')
 	})
 	$('.manage_progress').click(function(){
-		uni_modal("<i class='fa fa-edit'></i> Edit Progress","manage_progress.php?pid=<?php echo $id ?>&id="+$(this).attr('data-id'),'large')
+		uni_modal("<i class='fa fa-edit'></i> עריכת התקדמות","manage_progress.php?pid=<?php echo $id ?>&id="+$(this).attr('data-id'),'large')
 	})
 	$('.delete_progress').click(function(){
-	_conf("Are you sure to delete this progress?","delete_progress",[$(this).attr('data-id')])
+	_conf("האם למחוק את ההתקדמות??","מחיקת התקדמות",[$(this).attr('data-id')])
 	})
 	function delete_progress($id){
 		start_load()

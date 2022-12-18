@@ -7,6 +7,7 @@
   ob_start();
   $title = isset($_GET['page']) ? ucwords(str_replace("_", ' ', $_GET['page'])) : "Main";
   $titles = array(
+	'Home' => 'מסך ראשי',
 	'Main' => 'מסך ראשי',
 	'New Project'=>'פרוייקט חדש',
 	'Project List'=>'רשימת הפרוייקטים',
@@ -14,6 +15,7 @@
 	'Reports'=>'דוחות',
 	'New User'=>'משתמש חדש',
 	'User List'=>'רשימת המשתמשים',
+	'View Project'=>'הצגת פרוייקט',
   );
   $title = $titles[$title];
   ?>
