@@ -122,11 +122,15 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="https://www.itsourcecode.com/">itsourcecode.com</a>.</strong>
-    All rights reserved.
+    <div class="float-left d-none d-sm-inline-block">
+		<img style="width:10%" src="assets/images/logo.svg" />
+	</div>
     <div class="float-right d-none d-sm-inline-block">
-      <b><?php echo $_SESSION['system']['name'] ?></b>
-    </div>
+		<strong>Copyright &copy; 2022</strong> All rights reserved.
+	</div>
+<!--	<div class="float-right d-none d-sm-inline-block">
+		<b><?php echo $_SESSION['system']['name'] ?></b>
+	</div> -->
   </footer>
 </div>
 <!-- ./wrapper -->

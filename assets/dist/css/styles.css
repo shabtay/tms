@@ -101,3 +101,19 @@
     max-height: calc(100%);
     max-width: calc(100%);
   }
+  
+.navbar-success {
+    background-color: #ff780b;
+}
+
+.card-success.card-outline {
+    border-top: 3px solid #ff780b;
+}
+
+.bg-green {
+    background-color: #ff780b!important;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #a54a00;
+}

@@ -11,7 +11,6 @@
         <a class="nav-link text-white"  href="./" role="button"> <large><b><?php echo $_SESSION['system']['name'] ?></b></large></a>
       </li>
     </ul>
-
     <ul class="navbar-nav ml-auto">
      
       <li class="nav-item">
