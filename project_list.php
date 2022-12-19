@@ -62,7 +62,7 @@
 					<tr>
 						<th class="text-center"><?php echo $i++ ?></th>
 						<td>
-							<p><b><?php echo ucwords($row['name']) ?></b></p>
+							<p><b><a href="./index.php?page=view_project&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>"><?php echo ucwords($row['name']) ?></a></b></p>
 							<p class="truncate"><?php echo strip_tags($desc) ?></p>
 						</td>
 						<td><b><?php echo date("M d, Y",strtotime($row['start_date'])) ?></b></td>
