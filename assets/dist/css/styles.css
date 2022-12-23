@@ -117,3 +117,40 @@
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
     background-color: #a54a00;
 }
+
+.bg-info {
+    background-color: #6c6c6ca6!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ff780b;
+    border-color: #ff780b;
+    box-shadow: none;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #d96100;
+    border-color: #d96100;
+}
+
+.bg-gradient-primary {
+    background: #ff780b linear-gradient(180deg,#ff9239,#ff780b) repeat-x!important;
+    color: #fff;
+}
+
+.content-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+a {
+    color: #ff780b;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.border-primary {
+    border-color: #d1d1d1!important;
+}

@@ -22,8 +22,13 @@ header("location:index.php?page=home");
 <body class="hold-transition login-page bg-info">
 <div class="login-box">
   <div class="login-logo">
+<<<<<<< HEAD
     <img src="assets/images/logo.svg" alt="..." width="50%"><br />
 	<!-- <a href="#" class="text-white"><b><?php echo $_SESSION['system']['name'] ?></b></a> -->
+=======
+    <div><img src="assets/images/logo.svg" alt="..." width="50%"></div>
+    <a href="#" class="text-white"><b><?php echo $_SESSION['system']['name'] ?></b></a>
+>>>>>>> 60ec5414634102db8211594293c65b718ba2a06f
   </div>
   <!-- /.login-logo -->
   <div class="card">
