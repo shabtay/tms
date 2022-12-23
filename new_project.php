@@ -73,6 +73,19 @@
           </div>
         </div>
 		<div class="row">
+			<div class="col-md-6">
+            <div class="form-group">
+              <label for="" class="control-label">Git Repository</label>
+              <input type="text" class="form-control form-control-sm" autocomplete="off" name="repository" value="<?php echo isset($repository) ? $repository : '' ?>">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+            </div>
+          </div>
+		</div>
+		
+		<div class="row">
 			<div class="col-md-10">
 				<div class="form-group">
 					<label for="" class="control-label">Description</label>

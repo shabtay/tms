@@ -1,0 +1,37 @@
+---
+2d586c385237a950563c4d6fa8269320917c9232:
+  author: eli shabtay
+  comment: "\n\n    remove all\n"
+  date: Sun Dec 18 16:02:44 2022
+  email: eli.shabtay@gmail.com
+73ac361fefa69733436caab1c2bd38dc9e36f2dd:
+  author: eli shabtay
+  comment: "\n\n    eng ver\n"
+  date: Sun Dec 18 16:05:04 2022
+  email: eli.shabtay@gmail.com
+9d88ea268a9ce975600868539d2651b98fcf7588:
+  author: shabtay
+  comment: "\n\n    first commit\n"
+  date: Sat Dec 17 19:00:27 2022
+  email: eli.shabtay@gmail.com
+a5f539326b68edaddb9b2f804b5215cd85241df0:
+  author: eli shabtay
+  comment: "\n\n    iland\n"
+  date: Sun Dec 18 16:01:23 2022
+  email: eli.shabtay@gmail.com
+e017693aa47fc568069d310aa56b327d8c4cf9e8:
+  author: shabtay
+  comment: |2
+    
+    
+        add some more translates
+  date: Sat Dec 17 21:10:28 2022
+  email: eli.shabtay@gmail.com
+f76b78539dcf642a9ab3d04d520f2e3314779183:
+  author: shabtay
+  comment: |2
+    
+    
+        change colors and add logo
+  date: Sun Dec 18 22:30:57 2022
+  email: eli.shabtay@gmail.com

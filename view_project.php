@@ -150,7 +150,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								$desc=str_replace(array("<li>","</li>"), array("",", "), $desc);
 							?>
 								<tr>
-			                        <td class="text-center"><?php echo $i++ ?></td>
+			                        <td class="text-center"><?php echo $row['id'] ?></td>
 			                        <td class=""><b><?php echo ucwords($row['task']) ?></b></td>
 			                        <td class=""><p class="truncate"><?php echo strip_tags($desc) ?></p></td>
 			                        <td>
