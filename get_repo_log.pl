@@ -1,35 +1,44 @@
 #!perl
 
 use YAML;
+use JSON;
 
-$logs = `cd C:\tmp\repos\dancesearch\ & git log --name-status`;
+unlink "log.json" if -e "log.json";
 
-#@log = split( $logs, "\n" );
+$logs = `gitting.cmd`;
+
 my @ids;
 my $data;
 while( $logs =~ /commit (.*?)\s/g ) {
-#	print $1."\n";
 	push( @ids, $1 );
 }
 
 foreach $id ( @ids ) {
-	$text = `git show $id --no-patch`;
+	$text = `git_show.cmd $id`;
 
 	( $author, $email ) = $text =~ /Author\:\s(.*)?\<(.*?)\>/s;
 	( $date, $comment ) = $text =~ /Date\:\s+(.*)?\+\d+(.*)/s;
-	#( $comment ) = $text =~ /^\\n(.*)/;
-	
-#	print $comment . "\n";
 	
 	$author =~ s/^\s+|\s+$//g;
 	$email =~ s/^\s+|\s+$//g;
 	$date =~ s/^\s+|\s+$//g;
 	$comment =~ s/^[\r\n]+//;
+	$comment =~ s/^\s+|\s+$//g;
+	$comment =~ s/\n\s+/\n/s;
 
-	$data->{$id}{email} = $email;
-	$data->{$id}{author} = $author;
-	$data->{$id}{date} = $date;
-	$data->{$id}{comment} = $comment;
+	#print "---\n$comment\n---\n";
+	
+	if ( $comment =~ /task#(\d+)/is ) {
+		$data->{$id}{task_id} = $1;
+		$data->{$id}{email} = $email;
+		$data->{$id}{author} = $author;
+		$data->{$id}{date} = $date;
+		$data->{$id}{comment} = $comment;
+	}
 }
 
-print YAML::Dump( $data );
+$json_text = encode_json ($data );
+open FH, ">log.json";
+print FH $json_text . "\n";
+close FH;
+#print YAML::Dump( $data );

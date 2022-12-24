@@ -33,6 +33,8 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								<dd><?php echo ucwords($name) ?></dd>
 								<dt><b class="border-bottom border-primary">Description</b></dt>
 								<dd><?php echo html_entity_decode($description) ?></dd>
+								<dt><b class="border-bottom border-primary">Repository</b></dt>
+								<dd><?php echo html_entity_decode($repository) ?></dd>
 							</dl>
 						</div>
 						<div class="col-md-6">
@@ -197,6 +199,9 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 					<div class="card-tools">
 						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_productivity"><i class="fa fa-plus"></i> New Productivity</button>
 					</div>
+					<div class="card-tools">
+						<button style="margin-right:30px;" class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="get_git_comments"><i class="fa fa-arrow-down"></i> Get Git Comments</button>
+					</div>
 				</div>
 				<div class="card-body">
 					<?php 
@@ -276,6 +281,24 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 	})
 	$('#new_productivity').click(function(){
 		uni_modal("<i class='fa fa-plus'></i> New Progress","manage_progress.php?pid=<?php echo $id ?>",'large')
+	})
+	$('#get_git_comments').click(function(){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=get_git_comments',
+			method:'POST',
+			data:{id:<?php echo $id ?>},
+			success:function(resp){
+				if( resp ){
+					alert_toast("Got " + resp + " new comments",'success')
+				} else {
+					alert_toast("Got no new comments",'information')
+				}
+				setTimeout(function(){
+					location.reload()
+				},1500)
+			}
+		})
 	})
 	$('.manage_progress').click(function(){
 		uni_modal("<i class='fa fa-edit'></i> Edit Progress","manage_progress.php?pid=<?php echo $id ?>&id="+$(this).attr('data-id'),'large')

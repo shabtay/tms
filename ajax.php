@@ -81,5 +81,10 @@ if($action == 'get_report'){
 	if($get)
 		echo $get;
 }
+if($action == 'get_git_comments'){
+	$get = $crud->get_git_comments();
+	if($get)
+		echo $get;
+}
 ob_end_flush();
 ?>

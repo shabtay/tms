@@ -11,7 +11,8 @@
   <?php ob_end_flush() ?>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">-->
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->

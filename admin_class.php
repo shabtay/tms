@@ -347,6 +347,54 @@ Class Action {
 			$data[]=$row;
 		}
 		return json_encode($data);
-
+	}
+	
+	function get_user_id( $email ) {
+		$get = $this->db->query( "Select id from users where email='$email'" );
+		$row = $get->fetch_assoc();
+		if ( isset( $row['id'] ) ) {
+			return( $row['id'] );
+		} else {
+			return( 0 );
+		}
+	}
+	
+	function check_commit_id( $subject ) {
+		$get = $this->db->query( "Select id from user_productivity where subject='$subject'" );
+		$row = $get->fetch_assoc();
+		if ( isset( $row['id'] ) ) {
+			return( $row['id'] );
+		} else {
+			return( 0 );
+		}
+	}
+	
+	function get_git_comments() {
+		$count = 0;
+		extract($_POST);
+		exec( 'perl get_repo_log.pl' );
+		$json = file_get_contents('./log.json', true);
+		$data = json_decode( $json, true );
+		foreach ( $data as $commit_id => $commit_data ) {
+			$task_id = $commit_data['task_id'];
+			$email = $commit_data['email'];
+			$author = $commit_data['author'];
+			$date = date_format(date_create($commit_data['date']), 'Y-m-d');
+			$comment = $commit_data['comment'];
+			$subject = "Commit ID#$commit_id";
+			
+			$user_id = $this->get_user_id( $email );
+			$commit_id_exists = $this->check_commit_id( $subject );
+			
+			if ( $user_id != 0 && ! $commit_id_exists ) {
+				$count++;
+				
+				$this->db->query("insert into user_productivity 
+								(project_id,task_id,comment,subject,date,start_time,end_time,user_id,time_rendered) values 
+								($id, $task_id, '$comment', '$subject', '$date', '10:00', '11:00', $user_id, 1 )");
+			}
+		}
+		
+		return( $count );
 	}
 }
