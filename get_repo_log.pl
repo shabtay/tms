@@ -5,7 +5,7 @@ use JSON;
 
 unlink "log.json" if -e "log.json";
 
-$logs = `gitting.cmd`;
+$logs = `gitting.cmd $ARGV[0]`;
 
 my @ids;
 my $data;
@@ -14,7 +14,7 @@ while( $logs =~ /commit (.*?)\s/g ) {
 }
 
 foreach $id ( @ids ) {
-	$text = `git_show.cmd $id`;
+	$text = `git_show.cmd $ARGV[0] $id`;
 
 	( $author, $email ) = $text =~ /Author\:\s(.*)?\<(.*?)\>/s;
 	( $date, $comment ) = $text =~ /Date\:\s+(.*)?\+\d+(.*)/s;

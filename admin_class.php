@@ -369,10 +369,25 @@ Class Action {
 		}
 	}
 	
+	function get_repo_name( $id ) {
+		$get = $this->db->query( "Select repository from project_list where id=$id" );
+		$row = $get->fetch_assoc();
+		preg_match( '/\/([^\/]+?)\.git$/', $row['repository'], $matches );
+		if ( isset( $matches[1] ) ) {
+			return( $matches[1] );
+		} else {
+			return( '' );
+		}
+	}
+	
 	function get_git_comments() {
 		$count = 0;
 		extract($_POST);
-		exec( 'perl get_repo_log.pl' );
+		$repo_name = $this->get_repo_name( $id );
+		$repository_folder = $_SESSION['system']['repos_folder'] . "\\" . $repo_name;
+		
+		exec( "perl get_repo_log.pl $repository_folder" );
+		
 		$json = file_get_contents('./log.json', true);
 		$data = json_decode( $json, true );
 		foreach ( $data as $commit_id => $commit_data ) {

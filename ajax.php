@@ -1,6 +1,6 @@
 <?php
 ob_start();
-date_default_timezone_set("Asia/Manila");
+date_default_timezone_set("Asia/Jerusalem");
 
 $action = $_GET['action'];
 include 'admin_class.php';
