@@ -251,12 +251,22 @@ Class Action {
 		if(isset($user_ids)){
 			$data .= ", user_ids='".implode(',',$user_ids)."' ";
 		}
+		
 		// echo $data;exit;
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO project_list set $data");
 		}else{
 			$save = $this->db->query("UPDATE project_list set $data where id = $id");
 		}
+		
+		preg_match( '/\/([^\/]+?)\.git$/', $repository, $matches );
+		$repo_name = $matches[1];
+		$repository_folder = $_SESSION['system']['repos_folder'] . "\\" . $repo_name;
+		if( ! is_dir($repository_folder) ) {
+			exec("git_clone.cmd " . $_SESSION['system']['repos_folder'] . " $repository");
+			# create local repository (git clone)
+		}
+		
 		if($save){
 			return 1;
 		}
