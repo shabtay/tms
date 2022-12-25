@@ -126,7 +126,7 @@
 		<img style="width:10%" src="assets/images/logo.svg" />
 	</div>
     <div class="float-right d-none d-sm-inline-block">
-		<strong>Copyright &copy; 2022</strong> All rights reserved.
+		<strong>Copyright to E.S &copy; 2022</strong> All rights reserved.
 	</div>
 <!--	<div class="float-right d-none d-sm-inline-block">
 		<b><?php echo $_SESSION['system']['name'] ?></b>
