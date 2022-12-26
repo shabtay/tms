@@ -248,29 +248,33 @@ Class Action {
 				}
 			}
 		}
-		if(isset($user_ids)){
+		if( isset($user_ids) && $user_ids != "" ){
 			$data .= ", user_ids='".implode(',',$user_ids)."' ";
+		} else {
+			$data .= ", user_ids='' ";
 		}
 		
-		// echo $data;exit;
-		if(empty($id)){
+		if( empty($id) ){
 			$save = $this->db->query("INSERT INTO project_list set $data");
 		}else{
 			$save = $this->db->query("UPDATE project_list set $data where id = $id");
 		}
 		
-		preg_match( '/\/([^\/]+?)\.git$/', $repository, $matches );
-		$repo_name = $matches[1];
-		$repository_folder = $_SESSION['system']['repos_folder'] . "\\" . $repo_name;
-		if( ! is_dir($repository_folder) ) {
-			exec("git_clone.cmd " . $_SESSION['system']['repos_folder'] . " $repository");
-			# create local repository (git clone)
+		if ( isset($repository) && $repository != "" ) {
+			preg_match( '/\/([^\/]+?)\.git$/', $repository, $matches );
+			$repo_name = $matches[1];
+			$repository_folder = $_SESSION['system']['repos_folder'] . "\\" . $repo_name;
+			if( ! is_dir($repository_folder) ) {
+				exec("git_clone.cmd " . $_SESSION['system']['repos_folder'] . " $repository");
+				# create local repository (git clone)
+			}
 		}
 		
 		if($save){
 			return 1;
 		}
 	}
+	
 	function delete_project(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM project_list where id = $id");
@@ -278,6 +282,7 @@ Class Action {
 			return 1;
 		}
 	}
+	
 	function save_task(){
 		extract($_POST);
 		$data = "";
