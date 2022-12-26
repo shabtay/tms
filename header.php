@@ -8,6 +8,7 @@
   $title = isset($_GET['page']) ? ucwords(str_replace("_", ' ', $_GET['page'])) : "Home";
   ?>
   <title><?php echo $title ?> | <?php echo $_SESSION['system']['name'] ?></title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <?php ob_end_flush() ?>
 
   <!-- Google Font: Source Sans Pro -->
